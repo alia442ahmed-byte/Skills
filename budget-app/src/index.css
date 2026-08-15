@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+/*
+ * Chrome & ink from the data-viz reference palette. Light values live on :root;
+ * dark mode redefines only the tokens, so every component is written against
+ * roles rather than raw hex.
+ */
+:root {
+  color-scheme: light;
+  --surface-1: #fcfcfb;
+  --surface-2: #f2f1ed;
+  --plane: #f9f9f7;
+  --ink-primary: #0b0b0b;
+  --ink-secondary: #52514e;
+  --ink-muted: #898781;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --hairline: rgba(11, 11, 11, 0.10);
+  --status-good: #0ca30c;
+  --status-warning: #fab219;
+  --status-critical: #d03b3b;
+  --success-text: #006300;
+  --accent: #2a78d6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --surface-1: #1a1a19;
+    --surface-2: #242422;
+    --plane: #0d0d0d;
+    --ink-primary: #ffffff;
+    --ink-secondary: #c3c2b7;
+    --ink-muted: #898781;
+    --grid: #2c2c2a;
+    --axis: #383835;
+    --hairline: rgba(255, 255, 255, 0.10);
+    --success-text: #0ca30c;
+    --accent: #3987e5;
+  }
+}
+
+@theme inline {
+  --color-surface: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-plane: var(--plane);
+  --color-ink: var(--ink-primary);
+  --color-ink-secondary: var(--ink-secondary);
+  --color-ink-muted: var(--ink-muted);
+  --color-grid: var(--grid);
+  --color-axis: var(--axis);
+  --color-hairline: var(--hairline);
+  --color-good: var(--status-good);
+  --color-warning: var(--status-warning);
+  --color-critical: var(--status-critical);
+  --color-success-text: var(--success-text);
+  --color-accent: var(--accent);
+  --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background: var(--plane);
+  color: var(--ink-primary);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Columns of figures align; standalone numbers keep proportional figures. */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
